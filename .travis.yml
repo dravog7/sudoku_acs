@@ -3,7 +3,7 @@ dist: bionic
 language: cpp
 script:
     - make
-    - ./sudokusolver --file instances/logic-solvable/aiescargot.txt > results/trial.txt
+    - bash run_exp.sh
 deploy:
     provider: pages
     skip_cleanup: true
