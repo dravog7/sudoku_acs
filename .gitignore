@@ -1,4 +1,4 @@
 *.o
-./sudokusolver
+sudokusolver
 *~
 .vscode
