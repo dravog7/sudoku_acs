@@ -3,6 +3,7 @@ dist: bionic
 language: cpp
 script:
     - make
+    - ./sudokusolver --file instances/logic-solvable/aiescargot.txt
     - ./sudokusolver --file instances/logic-solvable/aiescargot.txt > results/trial.txt
 deploy:
     provider: results
