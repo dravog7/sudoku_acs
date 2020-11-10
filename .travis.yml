@@ -3,12 +3,12 @@ dist: bionic
 language: cpp
 script:
     - make
-    - ./sudokusolver --file instances/logic-solvable/aiescargot.txt
     - ./sudokusolver --file instances/logic-solvable/aiescargot.txt > results/trial.txt
 deploy:
-    provider: results
+    provider: pages
     skip_cleanup: true
     github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
     local_dir: results
+    target_branch: results
     on:
         branch: master
