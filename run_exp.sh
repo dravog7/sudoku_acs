@@ -6,9 +6,7 @@ echo "GPE" > results/GPE.txt
 echo "BS" > results/BS.txt
 for i in "${arr[@]}"
 do
-   echo "$i" >> results/BVE.txt
-   echo "$i" >> results/BS.txt
-   echo "$i" >> results/GPE.txt
+   echo "$i" |tee results/BVE.txt results/BS.txt results/GPE.txt
    ./sudokusolver --alg 0 --file "$i" --timeout 40 >> results/BVE.txt
    ./sudokusolver --alg 1 --file "$i" --timeout 40 >> results/BS.txt
    ./sudokusolver --alg 2 --file "$i" --timeout 40 >> results/GPE.txt --evap 0.01 --q0 0.1
