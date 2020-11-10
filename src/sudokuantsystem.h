@@ -8,6 +8,7 @@
 
 class SudokuAntSystem : public SudokuSolver
 {
+protected:
 	int numAnts;
 	float q0;
 	float rho;

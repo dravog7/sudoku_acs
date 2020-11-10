@@ -1,4 +1,5 @@
 #include "sudokuantsystem.h"
+#include "sudokuAntGPE.h"
 #include "sudokusolver.h"
 #include "backtracksearch.h"
 #include "board.h"
@@ -92,12 +93,21 @@ int main( int argc, char *argv[] )
 	float solTime;
 	Board solution;
 	SudokuSolver *solver;
-	
-	if ( algorithm == 0 )
+	switch (algorithm)
+	{
+	case 0:
 		solver = new SudokuAntSystem( nAnts, q0, rho, 1.0f/board.CellCount(), evap);
-	else
+		break;
+	case 1:
 		solver = new BacktrackSearch();
-
+		break;
+	case 2:
+		solver = new sudokuAntGPE( nAnts, q0, rho, 1.0f/board.CellCount(), evap);
+		break;
+	default:
+		solver = new SudokuAntSystem( nAnts, q0, rho, 1.0f/board.CellCount(), evap);
+		break;
+	}
 	
 	if ( showInitial )
 	{
